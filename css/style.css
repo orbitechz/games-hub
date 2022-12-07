@@ -1,4 +1,18 @@
-*{
-    margin: 0;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100;1,300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
 }
+
+:root {
+  --font-base: "Poppins", sans-serif;
+  --back-color: #24282f;
+  --font-color: #fff;
+}
+
+body {
+  max-width: 100%;
+}
+
+/* NAV AND SIDE BAR */
