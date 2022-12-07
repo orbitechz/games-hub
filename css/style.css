@@ -14,6 +14,7 @@
 body {
   max-width: 100%;
   min-height: 100vh;
+  background-image: linear-gradient(to top, #000000, #7d1cdd,  #620497, #570081);
 
 }
 
@@ -25,15 +26,16 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 150px ;
-    background-color: var(--back-color);
+    width: 140px ;
     padding: 5px 14px;
     z-index: 100; 
     font-family: var(--font-base);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+    background-color: transparent;
+    margin-left: 10px;
 
 }
 .navLogo{
@@ -65,7 +67,7 @@ body {
    
     height: 50px;
     list-style: none;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .sidebar li a{
@@ -81,6 +83,12 @@ body {
     text-decoration: none;
     color: var(--font-color);
 
+}
+
+.sidebar li a:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+    width: max-content;
+    padding: 0 10px 0 10px;
 }
 
 .sidebar li .tooltip{
@@ -112,16 +120,18 @@ body {
     .nav-link a span{
         display: none;
     }
-
-    .navLogo a {
-        display: none;
-    }
+    
 
     .sidebar{
         width: 60px;
         position: sticky;
         height: 100%;
         min-height: 100vh;
+    }
+    .sidebar li a:hover{
+        background-color:transparent;
+        width: 0;
+        padding: 0;
     }
     .sidebar li:hover .tooltip{
 visibility:visible;
