@@ -3,13 +3,17 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
 }
 
 :root {
   --font-base: "Poppins", sans-serif;
   --back-color: #24282f;
   --font-color: #fff;
+}
+
+a{
+    text-decoration: none;
+    color: var(--font-color);
 }
 
 body {
@@ -24,12 +28,12 @@ body {
  .sidebar{
 
     min-height: 100%;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     width: 140px ;
     padding: 5px 14px;
-    z-index: 100; 
+    /* z-index: 100;  */
     font-family: var(--font-base);
     display: flex;
     flex-direction: column;
@@ -38,21 +42,45 @@ body {
     background-color: transparent;
     margin-left: 10px;
 
-
 }
 .navbar{
     color: var(--font-color);
-    height: 10rem;
-    position: fixed;
-    z-index: 100;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* position: fixed;
+    z-index: 100; */
+}
+
+.navbar .opcoes,
+.navbar .logo,
+.navbar .fav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-inline: 2rem;
+}
+
+.navbar .opcoes,
+.navbar .fav{
+    font-family: 'Poppins', cursive;
+    /* font-weight: 600; */
 }
 .logo span{
     color: yellow;
-       
 }
-.logo{
+.navbar .opcoes{
+    width: 15rem;
+}
+.navbar .logo p{
+    padding-inline: 1rem;
+}
+.navbar .logo{
     font-weight: bold;
     font-family: 'Press Start 2P', cursive;
+    /* margin-left: 4rem; */
 }
  
 
