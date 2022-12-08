@@ -68,14 +68,7 @@ body {
     background-image: linear-gradient(to left, #7611db,  #620497, #570081);;
 }
 
-.main-content{
-    margin-top: 4rem;
-    margin-left: 12rem;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    
-}
+
 
 .navbar .opcoes,
 .navbar .logo,
@@ -198,11 +191,18 @@ visibility:visible;
 }
 
 /*--------------------------BANNER-------------------------------------------*/
-
-.container-banner{
-    background-color: #fff;
+.main-content{
+    margin-top: 4rem;
+    margin-left: 12rem;
+    width: 100vw;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.banner{
+    background-color: #fff;
     margin-top: 3vw;
     margin-bottom: 1vw;
     width: 50vw;
@@ -210,3 +210,26 @@ visibility:visible;
     border-radius: 1.2rem;
 }
 
+.container-banner{
+    display: flex;
+    justify-content: center;
+}
+
+/*-------------------VITRINE---------------------------*/
+
+.tudo-vitrine{
+    padding-top: 1rem; 
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    gap: 2rem;
+       
+}
+
+.vitrine{
+    background-color: #fff;
+    border: 1px solid black;
+    height: 10rem;
+    width: 20rem;
+    border-radius: 1rem;
+}
