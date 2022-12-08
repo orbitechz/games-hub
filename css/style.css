@@ -12,7 +12,7 @@ body{
     box-sizing: border-box;
     overflow-x: hidden;
     display: flex;
-    flex-direction: row;
+    
 }
 
 :root {
@@ -220,8 +220,8 @@ visibility:visible;
 .tudo-vitrine{
     padding-top: 1rem; 
     display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-evenly;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
     gap: 2rem;
        
 }
@@ -230,6 +230,21 @@ visibility:visible;
     background-color: #fff;
     border: 1px solid black;
     height: 10rem;
-    width: 20rem;
+    width: 15rem;
     border-radius: 1rem;
+}
+
+/*---------------Botão----------------------*/
+
+button{
+    margin-left: 20rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: 2rem;
+    width: 10rem;
+    border-radius: 0.5rem;
+    border-style: none;
+    background-color: #5E1CB1;
+    color: #fff;
+
 }
