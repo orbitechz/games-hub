@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  cursor: url("https://cur.cursors-4u.net/games/gam-14/gam1339.cur"), auto !important;
 }
 
 :root {
@@ -41,8 +42,8 @@ body {
     align-items: flex-start;
     background-color: transparent;
     margin-left: 10px;
-
 }
+
 .navbar{
     color: var(--font-color);
     height: 3rem;
@@ -50,6 +51,9 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: .8rem;
+
     /* position: fixed;
     z-index: 100; */
 }
@@ -60,28 +64,32 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-inline: 2rem;
+    margin-inline: 1.5rem;
+}
+.navbar a{
+    transition: 300ms;
 }
 
-.navbar .opcoes,
-.navbar .fav{
-    font-family: 'Poppins', cursive;
-    /* font-weight: 600; */
+.navbar a:hover{
+    transition: 300ms;    
+    font-size: .9rem;
+    color: yellow;
 }
+
 .logo span{
     color: yellow;
 }
 .navbar .opcoes{
     width: 15rem;
 }
+.navbar .fav{
+    margin-right: 5rem;
+}
 .navbar .logo p{
     padding-inline: 1rem;
+    font-size: 1rem;
 }
-.navbar .logo{
-    font-weight: bold;
-    font-family: 'Press Start 2P', cursive;
-    /* margin-left: 4rem; */
-}
+
  
 
 .sidebar ul{
