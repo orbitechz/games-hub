@@ -213,6 +213,7 @@ body {
 
 .container {
   margin: 30px;
+  font-family: 'Poppins';
 }
 
 .row {
@@ -266,6 +267,7 @@ body {
 
 .image .details h2 span {
   font-weight: 900;
+  
 }
 
 .image:hover .details h2 {
@@ -332,6 +334,10 @@ body {
   .image {
     max-width: 480px;
   }
+  .row {
+    display: grid;
+    grid-template-columns: auto;
+  }
 }
 
 @media (max-width: 653px) {
@@ -339,10 +345,7 @@ body {
     margin-left: 40px;
   }
 
-  .row {
-    display: grid;
-    grid-template-columns: auto;
-  }
+
 }
 
 @media (max-width: 570px) {
@@ -356,6 +359,8 @@ body {
   .image .details h2 {
     font-size: 25px;
   }
+
+  
 }
 
 /*---------------------- HR SEPARAÇÃO --------------------*/
@@ -384,7 +389,7 @@ body {
 }
 
 .titlee{
-    
+    align-self: stretch;
     font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
@@ -395,8 +400,13 @@ color: #FFFFFF;
 
 @media (max-width:840px) {
     .titlee{
-        font-size: 1rem;
+        font-size: .8rem;
     }
+    .lineOne{
+        width: 8vw;
+    }
+
+    
 }
 
 /*---------------Botão----------------------*/
