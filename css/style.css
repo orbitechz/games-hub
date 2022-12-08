@@ -249,12 +249,13 @@ body {
     background-color: #5E1CB1;
     color: #fff;
     font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
 }
 
 .load-btn:hover{
     color: yellow;
     transform: translateY(5px);
-    font-size: 1rem;
+    font-size: 0.7rem;
     transition: 500ms;
 }
 
