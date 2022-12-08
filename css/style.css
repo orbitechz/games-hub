@@ -400,3 +400,28 @@ color: #FFFFFF;
 }
 
 /*---------------Botão----------------------*/
+
+.load-btn{
+    align-self: center;
+    margin-bottom: 70px;
+    padding: 10px 30px 10px 30px;
+    color: #fff;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #8728ff, #764ba2, #8728ff, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.load-btn:hover{
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+}
+
+.load-btn:focus{
+    outline: none;
+}
