@@ -5,6 +5,14 @@
   padding: 0;
   cursor: url("https://cur.cursors-4u.net/games/gam-14/gam1339.cur"), auto !important;
 }
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+}
 
 :root {
   --font-base: "Poppins", sans-serif;
@@ -20,28 +28,28 @@ a{
 body {
   max-width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(to top, #000000, #7d1cdd,  #620497, #570081);
+  background-image: linear-gradient(to top, #7d1cdd, #620497, #570081);
 
 }
 
 /* NAV AND SIDE BAR */
 
  .sidebar{
-
     min-height: 100%;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     left: 0;
     width: 140px ;
     padding: 5px 14px;
-    /* z-index: 100;  */
+    z-index: 100; 
+    margin-top: 3rem;
     font-family: var(--font-base);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     background-color: transparent;
-    margin-left: 10px;
+    margin-left: 2rem;
 }
 
 .navbar{
@@ -53,9 +61,15 @@ body {
     align-items: center;
     font-family: 'Press Start 2P', cursive;
     font-size: .8rem;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-image: linear-gradient(to left, #7611db,  #620497, #570081);;
+}
 
-    /* position: fixed;
-    z-index: 100; */
+.main-content{
+    margin-top: 4rem;
+    margin-left: 12rem;
 }
 
 .navbar .opcoes,
@@ -88,9 +102,12 @@ body {
 .navbar .logo p{
     padding-inline: 1rem;
     font-size: 1rem;
+    transition: 300ms;
 }
-
- 
+::-webkit-scrollbar {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Nicolas_Cage_Deauville_2013.jpg");
+    background-size: contain;
+  } 
 
 .sidebar ul{
     
