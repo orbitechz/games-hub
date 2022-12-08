@@ -31,8 +31,11 @@ a{
 body {
   max-width: 100%;
   min-height: 100vh;
+  background-image: linear-gradient(to bottom, #8728FF,  #000000);
+ 
+  /*BACKGROUND-IMAGE ANTIGO: 
   background-image: linear-gradient(to top, #7d1cdd, #620497, #570081);
-
+  */
 }
 
 /* NAV AND SIDE BAR */
