@@ -19,6 +19,8 @@ body{
   --font-base: "Poppins", sans-serif;
   --back-color: #24282f;
   --font-color: #fff;
+  
+ 
 }
 
 a{
@@ -186,7 +188,7 @@ body {
         padding: 0;
     }
     .sidebar li:hover .tooltip{
-visibility:visible;
+    visibility:visible;
     }
 }
 
@@ -236,7 +238,7 @@ visibility:visible;
 
 /*---------------Botão----------------------*/
 
-button{
+.load-btn{
     margin-left: 20rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -246,5 +248,13 @@ button{
     border-style: none;
     background-color: #5E1CB1;
     color: #fff;
-
+    font-family: 'Press Start 2P', cursive;
 }
+
+.load-btn:hover{
+    color: yellow;
+    transform: translateY(5px);
+    font-size: 1rem;
+    transition: 500ms;
+}
+
