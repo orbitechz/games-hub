@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   cursor: url("https://cur.cursors-4u.net/games/gam-14/gam1339.cur"), auto !important;
+
 }
 body{
     margin: 0;
@@ -70,6 +71,10 @@ body {
 .main-content{
     margin-top: 4rem;
     margin-left: 12rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .navbar .opcoes,
@@ -191,3 +196,17 @@ body {
 visibility:visible;
     }
 }
+
+/*--------------------------BANNER-------------------------------------------*/
+
+.container-banner{
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+    width: 50vw;
+    height: 20vw;
+    border-radius: 1.2rem;
+}
+
