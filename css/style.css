@@ -194,19 +194,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-.banner {
-  background-color: #fff;
-  margin-top: 3vw;
-  margin-bottom: 1vw;
-  width: 50vw;
-  height: 20vw;
-  border-radius: 1.2rem;
+.container-banner{
+    width: 500px;
+    font-family: 'Poppins';
 }
-
-.container-banner {
-  display: flex;
-  justify-content: center;
+.container-banner img{
+width: 100%;
 }
 
 /*-------------------VITRINE---------------------------*/
@@ -233,6 +226,7 @@ body {
 }
 
 .image img {
+    width: 100%;
   opacity: 1;
   position: relative;
   vertical-align: top;
