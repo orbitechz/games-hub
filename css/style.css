@@ -34,7 +34,7 @@ a {
 body {
   max-width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, #8728ff, #000000);
+  background-image: linear-gradient(to bottom, #8728ff, #b020d4);
 
   /*BACKGROUND-IMAGE ANTIGO: 
   background-image: linear-gradient(to top, #7d1cdd, #620497, #570081);
@@ -78,8 +78,7 @@ body {
 }
 
 .navbar .opcoes,
-.navbar .logo,
-.navbar .fav {
+.navbar .logo {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -100,9 +99,6 @@ body {
 }
 .navbar .opcoes {
   width: 15rem;
-}
-.navbar .fav {
-  margin-right: 5rem;
 }
 .navbar .logo p {
   padding-inline: 1rem;
