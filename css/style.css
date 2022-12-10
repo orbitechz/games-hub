@@ -82,7 +82,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-inline: 1.5rem;
+  margin-inline: 3rem;
 }
 .navbar a {
   transition: 300ms;
@@ -138,29 +138,7 @@ body {
   padding: 0 10px 0 10px;
 }
 
-.sidebar li .tooltip {
-  position: absolute;
-  z-index: 3;
-  background: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 400;
-  opacity: 0;
-  white-space: nowrap;
-  pointer-events: none;
-  transition: 0s;
-  visibility: hidden;
-}
-.sidebar li:hover .tooltip {
-  opacity: 1;
-  position: absolute;
-  pointer-events: auto;
-  transition: all 0.4s ease;
-  visibility: hidden;
-  transform: translateY(-50%);
-}
+
 
 @media (max-width: 653px) {
   .nav-link a span {
