@@ -1,4 +1,9 @@
 const teste = document.getElementById("cod");
+let homeContent = document.querySelector('.container')
+let loadMoreBtn = document.querySelector('.container button')
+
+let initialItems = 10 ;
+let loadItems = 10 ;
 
 const options = {
 	method: 'GET',
@@ -7,41 +12,89 @@ const options = {
 		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 	}
 };
-function exibe(r){
-    console.log(r[0]);
-    console.log(r.length);
-    console.log(window.localStorage.getItem("516"));
-    for(var x = 0; x < r.length; x++){
-        let div = document.createElement("div")
-        let titulo = document.createElement("h1");
-        let img = document.createElement("img");
-        let desc = document.createElement("p");
-        img.src = r[x].thumbnail;
-        titulo.innerText = r[x].title   
-        desc.innerText = r[x].short_description
-        div.appendChild(img)
-        div.appendChild(titulo);
-        div.appendChild(desc)
-        teste.appendChild(div)
-    }
-}
-fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?category=shooter', options)
+
+
+fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=all', options)
 	.then(response => response.json())
-	.then(response => exibe(response))
-	.catch(err => console.error(err));
-let unfillStar = document.querySelectorAll(".star");
-let favs = document.querySelector('.fav');
+    .then(response => {localStorage.setItem('games',JSON.stringify(response));
+});
 
 
-let homeContent = document.querySelector('.main-content');
-let favContent = document.querySelector('.favs-content');
-
-for (let index = 0; index < unfillStar.length; index++) {
-    
-    unfillStar[index].addEventListener('click',function(){
-        unfillStar[index].classList.toggle('starfill');
-    
-    })
+	
+function loadInitialItems(){
+    let games = JSON.parse(localStorage.getItem('games'));
+    let out = "";
+    let counter = 0 ;
+    for(let game of games){
+        if(counter < initialItems){
+            out += `
+            <div class="image">
+              <img src="${game.thumbnail}" alt="" />
+              <div class="details">
+                <h2>${game.title}</h2>
+                <div class="more">
+                  <a href="#" class="read-more">Access <span>Game</span></a>
+                  <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+        }
+        counter++;
+    }
+    let div = document.createElement("div");
+    div.className ='row'
+    homeContent.insertBefore(div,loadMoreBtn);
+    div.innerHTML = out ;
 }
 
 
+function loadData(){
+let games = JSON.parse(localStorage.getItem('games'));
+let caurrentDisplayGames = document.querySelectorAll(".image").length;
+let out = '';
+let counter = 0 ;
+for(let game of games){
+    if(counter >= caurrentDisplayGames && counter < loadItems + caurrentDisplayGames){
+out += `
+<div class="image">
+              <img src="${game.thumbnail}" alt="" />
+              <div class="details">
+                <h2>${game.title}</h2>
+                <div class="more">
+                  <a href="#" class="read-more">Access <span>Game</span></a>
+                  <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+`;
+    }
+    counter++;
+}
+let div = document.createElement("div");
+    div.className ='row'
+    homeContent.insertBefore(div,loadMoreBtn);
+    div.innerHTML = out ;
+    div.style.opacity = 0 ;
+
+    if(document.querySelectorAll(".image").length == games.length){
+loadMoreBtn.style.display = 'none';
+    }
+    fadeIn(div);
+}
+
+function fadeIn(div){
+    let opacity = 0;
+    let interval = setInterval(function(){
+if(opacity <=1){
+    opacity = opacity + 0.1;
+    div.style.opacity = opacity;
+}else{
+    clearInterval(interval);
+}
+    },30)
+}
