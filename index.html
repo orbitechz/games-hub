@@ -1,14 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
     <title>Games Hub</title>
-</head>
-<body>
-<script src="main.js"></script>
-</body>
+  </head>
+  <body>
+    <!-- NAV AND SIDEBAR -->
+
+    <nav class="navbar">
+      <div class="logo">
+        <i class="bi bi-controller"></i>
+        <p>Game<span>Hub</span></p>
+      </div>
+      <div class="opcoes">
+        <a href="#">PC</a>
+        <p>|</p>
+        <a href="#">Browser</a>
+        <p>|</p>
+        <a href="#">Todos</a>
+      </div>
+      <div class="fav">
+        <p>Favoritos</p>
+      </div>
+    </nav>
+
+    <nav class="sidebar">
+      <ul class="menu-links">
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-house-door"></i>
+            <span class="text nav-text">home</span>
+          </a>
+          <span class="tooltip">home</span>
+        </li>
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-people"></i>
+            <span class="text nav-text">pvp</span>
+          </a>
+          <span class="tooltip">pvp</span>
+        </li>
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-shield-shaded"></i>
+            <span class="text nav-text">mmofps</span>
+          </a>
+          <span class="tooltip">mmofps</span>
+        </li>
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-car-front"></i>
+            <span class="text nav-text">racing</span>
+          </a>
+          <span class="tooltip">racing</span>
+        </li>
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-rocket-takeoff"></i>
+            <span class="text nav-text">space</span>
+          </a>
+          <span class="tooltip">space</span>
+        </li>
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-suit-club"></i>
+            <span class="text nav-text">card</span>
+          </a>
+          <span class="tooltip">card</span>
+        </li>
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-airplane"></i>
+            <span class="text nav-text">flight</span>
+          </a>
+          <span class="tooltip">flight</span>
+        </li>
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-diagram-2"></i>
+            <span class="text nav-text">startegy</span>
+          </a>
+          <span class="tooltip">startegy</span>
+        </li>
+        <li class="nav-link">
+          <a href="#">
+            <i class="bi bi-radioactive"></i>
+            <span class="text nav-text">horror</span>
+          </a>
+          <span class="tooltip">horror</span>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <section class="section-content">
+        <div class="container-banner">
+          <div class="image">
+            <img src="./assets/thumbnail (1).jpg" alt="" />
+            <div class="details">
+              <h2>LostArk</h2>
+              <div class="more">
+                <a href="" class="read-more">Access <span>Game</span></a>
+                <div class="icons">
+                  <a href=""><i class="bi bi-star"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="seperator">
+          <div class="lineOne"></div>
+          <div class="titlee">Popular Games</div>
+          <div class="lineTwo"></div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="image">
+              <img src="./assets/thumbnail (1).jpg" alt="" />
+              <div class="details">
+                <h2>LostArk</h2>
+                <div class="more">
+                  <a href="#" class="read-more">Access <span>Game</span></a>
+                  <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="image">
+              <img src="./assets/thumbnail (2).jpg" alt="" />
+              <div class="details">
+                <h2>Game's Name</h2>
+                <div class="more">
+                  <a href="#" class="read-more">Access <span>Game</span></a>
+                  <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="image">
+              <img src="./assets/thumbnail.jpg" alt="" />
+              <div class="details">
+                <h2>OverWatch</h2>
+                <div class="more">
+                  <a href="#" class="read-more">Access <span>Game</span></a>
+                  <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="image">
+              <img src="./assets/thumbnail (3).jpg" alt="" />
+              <div class="details">
+                <h2>Game's Name</h2>
+                <div class="more">
+                  <a href="#" class="read-more">Access <span>Game</span></a>
+                  <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="image">
+              <img src="./assets/thumbnail (4).jpg" alt="" />
+              <div class="details">
+                <h2>Game's Name</h2>
+                <div class="more">
+                  <a href="#" class="read-more">Access <span>Game</span></a>
+                  <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="image">
+              <img src="./assets/thumbnail (5).jpg" alt="" />
+              <div class="details">
+                <h2>Game's Name</h2>
+                <div class="more">
+                  <a href="#" class="read-more">Access <span>Game</span></a>
+                  <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="load-btn">Carregar mais</button>
+        
+      </section>
+    </div>
+
+
+    <script src="./js/main.js"></script>
+  </body>
 </html>
