@@ -15,7 +15,7 @@ favs.addEventListener('click', function(){
         root.removeChild(root.lastChild);
     }
     let favoritos = JSON.parse(localStorage.getItem("fav") || '[]');
-    exibe(favoritos)
+    exibe(favoritos);
 })
 
 unfillStar.forEach(function(star){

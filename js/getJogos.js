@@ -5,7 +5,7 @@ const options = {
 		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 	}
 };
-export async function consultaJogos(filtro="games?sort-by=popularity"){
+export async function consultaJogos(filtro="filter?tag=3d.mmorpg.fantasy.pvp&platform=pc"){
 	return await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/${filtro}`, options).then(response => response.json());
 	
 }

@@ -1,22 +1,23 @@
 import { consultaJogos } from './getJogos.js'
-let qntd = 10;
+let qntd = 11;
 let qntdExibido = 0;
-let games = await consultaJogos();
+let games;
 export async function exibe(filtro="sort-by=popularity"){
+    games = new Array;
     const container = document.getElementById("conteudo-main");
     const banner = document.getElementById("banner");
-    console.log(typeof(typeof(filtro)))
     if(typeof(filtro) == 'object'){
         console.log('sera?')
         filtro.forEach(async function(ids){
-            let arrayFavs = new Array
             let item = await consultaJogos(`game?id=${ids.id}`)
-            arrayFavs.push(item)
-            console.log(arrayFavs)
+            games.push(item);
+            console.log(games[0].title)
         });
     }else{
-        console.log(games);
+        games = await consultaJogos();
     }
+    console.log(games)
+    console.log(games.length)
         
     for(qntdExibido; qntdExibido < qntd; qntdExibido++){
         let imageDiv = document.createElement("div");
@@ -58,9 +59,9 @@ export async function exibe(filtro="sort-by=popularity"){
             container.appendChild(imageDiv);
         }
 
-        if(qntdExibido == games.length){
-            break;
-        }
+        // if(qntdExibido == games.length){
+        //     break;
+        // }
     }
 }
 
