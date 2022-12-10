@@ -1,8 +1,11 @@
 import { jogos } from './getJogos.js'
 let games = jogos();
-export function exibe(){
+let qndtExibicao = 10;
+let qntdExibido = 0;
+
+function gridJogos(){
     const container = document.getElementById("conteudo-main")
-    for(var x = 0; x < 10; x++){
+    for(qntdExibido; qntdExibido < qndtExibicao; qntdExibido++){
         let imageDiv = document.createElement("div");
         let detailsDiv = document.createElement("div");
         let moreDiv = document.createElement("div");
@@ -13,9 +16,11 @@ export function exibe(){
         let spanStar = document.createElement("span");
         let icon = document.createElement("i");
 
-        img.src = games[x].thumbnail;
-        titulo.innerText = games[x].title   
-        readMore.innerText = games[x].short_description
+        img.src = games[qntdExibido].thumbnail;
+        titulo.innerText = games[qntdExibido].title   
+        // readMore.innerText = games[qntdExibido].short_description
+        readMore.innerText = 'Acessar jogo'
+        icon.className = "bi bi-star-fill"
 
         imageDiv.classList.add("image");
         detailsDiv.classList.add("details");
@@ -24,8 +29,6 @@ export function exibe(){
         iconsDiv.classList.add("icons");
         spanStar.classList.add("star");
         
-
-
         imageDiv.appendChild(img);
         imageDiv.appendChild(detailsDiv);
         detailsDiv.appendChild(titulo);
@@ -34,7 +37,20 @@ export function exibe(){
         moreDiv.appendChild(iconsDiv);
         iconsDiv.appendChild(spanStar);
         spanStar.appendChild(icon);
-
         container.appendChild(imageDiv);
     }
+}
+
+export function exibe(){
+    gridJogos();
+}
+
+export function load(){
+    qndtExibicao+=10;
+    gridJogos()
+
+}
+
+export function teste(){
+    alert("i")
 }

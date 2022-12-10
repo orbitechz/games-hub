@@ -290,7 +290,7 @@ width: 100%;
 .more .read-more {
   color: #000;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -313,6 +313,7 @@ width: 100%;
 
 .starfill{
   color: #F7A81B;
+  background-color: #F7A81B;
 }
 
 @media (max-width: 890px) {
