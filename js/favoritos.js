@@ -1,8 +1,22 @@
 import { exibe } from "./appendJogos.js";
+import { consultaJogos } from "./getJogos.js";
 
 const wait = await exibe();
-let unfillStar = document.querySelectorAll(".star");
+const root = document.getElementById("conteudo-main");
+const banner = document.getElementById("banner");
+
+const favs = document.getElementById("favoritos");
+const unfillStar = document.querySelectorAll(".star");
 atualizaFavoritos();
+
+favs.addEventListener('click', function(){
+    banner.removeChild(banner.lastChild);
+    while (root.firstChild) {
+        root.removeChild(root.lastChild);
+    }
+    let favoritos = JSON.parse(localStorage.getItem("fav") || '[]');
+    exibe(favoritos)
+})
 
 unfillStar.forEach(function(star){
     star.addEventListener('click',function(){
@@ -43,5 +57,6 @@ function atualizaFavoritos(id=null, rm=false){
     }
     localStorage.setItem("fav", JSON.stringify(favoritos));        
 }
+
 
 

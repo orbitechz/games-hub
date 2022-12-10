@@ -1,5 +1,3 @@
-
-
 const options = {
 	method: 'GET',
 	headers: {
@@ -7,10 +5,9 @@ const options = {
 		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 	}
 };
-
-const res = await fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=all', options).then(response => response.json());
-
-export function jogos() {
-	return res;
+export async function consultaJogos(filtro="games?sort-by=popularity"){
+	return await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/${filtro}`, options).then(response => response.json());
+	
 }
+
 

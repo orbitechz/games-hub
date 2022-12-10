@@ -5,3 +5,5 @@ const bttCarrega = document.getElementById("carregaMais")
 bttCarrega.addEventListener('click',function(){
   load()
 })
+
+

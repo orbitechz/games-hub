@@ -1,11 +1,23 @@
-import { jogos } from './getJogos.js'
-let games = jogos();
+import { consultaJogos } from './getJogos.js'
 let qntd = 10;
 let qntdExibido = 0;
-
-function gridJogos(){
+let games = await consultaJogos();
+export async function exibe(filtro="sort-by=popularity"){
     const container = document.getElementById("conteudo-main");
-    // const banner = 
+    const banner = document.getElementById("banner");
+    console.log(typeof(typeof(filtro)))
+    if(typeof(filtro) == 'object'){
+        console.log('sera?')
+        filtro.forEach(async function(ids){
+            let arrayFavs = new Array
+            let item = await consultaJogos(`game?id=${ids.id}`)
+            arrayFavs.push(item)
+            console.log(arrayFavs)
+        });
+    }else{
+        console.log(games);
+    }
+        
     for(qntdExibido; qntdExibido < qntd; qntdExibido++){
         let imageDiv = document.createElement("div");
         let detailsDiv = document.createElement("div");
@@ -21,6 +33,8 @@ function gridJogos(){
         titulo.innerText = games[qntdExibido].title   
         readMore.innerText = games[qntdExibido].short_description
         icon.className = "bi bi-star-fill"
+        readMore.href = games[qntdExibido].game_url
+        readMore.target = "blank"
 
         imageDiv.classList.add("image");
         imageDiv.id = games[qntdExibido].id;
@@ -38,20 +52,19 @@ function gridJogos(){
         moreDiv.appendChild(iconsDiv);
         iconsDiv.appendChild(spanStar);
         spanStar.appendChild(icon);
-        container.appendChild(imageDiv);
-    }
-}
+        if(qntdExibido == 0){
+            banner.appendChild(imageDiv);
+        }else{
+            container.appendChild(imageDiv);
+        }
 
-export function exibe(){
-    gridJogos();
+        if(qntdExibido == games.length){
+            break;
+        }
+    }
 }
 
 export function load(){
     qntd+=10;
-    gridJogos()
-
-}
-
-export function teste(){
-    alert("i")
+    exibe()
 }
