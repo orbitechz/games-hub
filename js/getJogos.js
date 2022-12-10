@@ -8,7 +8,7 @@ const options = {
 	}
 };
 
-const res = await fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?category=shooter', options).then(response => response.json());
+const res = await fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=all', options).then(response => response.json());
 
 export function jogos() {
 	return res;

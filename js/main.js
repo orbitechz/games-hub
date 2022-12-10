@@ -1,4 +1,4 @@
-import {exibe, load, teste} from "./appendJogos.js"
+import {exibe, load} from "./appendJogos.js"
 exibe();
 
 const bttCarrega = document.getElementById("carregaMais")

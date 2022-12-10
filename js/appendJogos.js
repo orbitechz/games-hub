@@ -1,11 +1,12 @@
 import { jogos } from './getJogos.js'
 let games = jogos();
-let qndtExibicao = 10;
+let qntd = 10;
 let qntdExibido = 0;
 
 function gridJogos(){
-    const container = document.getElementById("conteudo-main")
-    for(qntdExibido; qntdExibido < qndtExibicao; qntdExibido++){
+    const container = document.getElementById("conteudo-main");
+    // const banner = 
+    for(qntdExibido; qntdExibido < qntd; qntdExibido++){
         let imageDiv = document.createElement("div");
         let detailsDiv = document.createElement("div");
         let moreDiv = document.createElement("div");
@@ -18,11 +19,11 @@ function gridJogos(){
 
         img.src = games[qntdExibido].thumbnail;
         titulo.innerText = games[qntdExibido].title   
-        // readMore.innerText = games[qntdExibido].short_description
-        readMore.innerText = 'Acessar jogo'
+        readMore.innerText = games[qntdExibido].short_description
         icon.className = "bi bi-star-fill"
 
         imageDiv.classList.add("image");
+        imageDiv.id = games[qntdExibido].id;
         detailsDiv.classList.add("details");
         moreDiv.classList.add("more");
         readMore.classList.add("read-more");
@@ -46,7 +47,7 @@ export function exibe(){
 }
 
 export function load(){
-    qndtExibicao+=10;
+    qntd+=10;
     gridJogos()
 
 }
