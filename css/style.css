@@ -110,6 +110,10 @@ body {
   transition: 300ms;
 }
 
+.navbar .fav #favoritos{
+  margin-right: 60px;
+}
+
 .sidebar ul {
   display: flex;
   flex-direction: column;
@@ -178,6 +182,7 @@ body {
 .section-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 .container-banner{
@@ -278,7 +283,7 @@ width: 100%;
   justify-content: space-between;
   align-items: center;
   padding-top: 30px;
-  bottom: -300px;
+  bottom: -400px;
   transition: 0.3s;
   transition-property: bottom;
   color: var(--back-color);
@@ -327,10 +332,9 @@ width: 100%;
     margin-left: 40px;
   }
 
-
-}
-
-@media (max-width: 570px) {
+  .image{
+    max-width: 370px;
+  }
   .image .details p {
     font-size: 13px;
   }
@@ -343,9 +347,15 @@ width: 100%;
   }
 .seperator{
   align-self: center;
+  margin-left: 70px;
 }
-  
+.container-banner{
+  margin-left: 50px;
 }
+
+}
+
+
 
 /*---------------------- HR SEPARAÇÃO --------------------*/
 
