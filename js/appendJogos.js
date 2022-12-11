@@ -19,45 +19,11 @@ export async function exibe(filtro = "sort-by=popularity") {
   }
 
   for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
-    // let imageDiv = document.createElement("div");
-    // let detailsDiv = document.createElement("div");
-    // let moreDiv = document.createElement("div");
-    // let iconsDiv = document.createElement("div");
-    // let readMore = document.createElement("a");
-    // let titulo = document.createElement("h2");
-    // let img = document.createElement("img");
-    // let spanStar = document.createElement("span");
-    // let icon = document.createElement("i");
-
-    // img.src = games[qntdExibido].thumbnail;
-    // titulo.innerText = games[qntdExibido].title
-    // readMore.innerText = games[qntdExibido].short_description
-    // icon.className = "bi bi-star-fill"
-    // readMore.href = games[qntdExibido].game_url
-    // readMore.target = "blank"
-
-    // imageDiv.classList.add("image");
-    // imageDiv.id = games[qntdExibido].id;
-    // detailsDiv.classList.add("details");
-    // moreDiv.classList.add("more");
-    // readMore.classList.add("read-more");
-    // iconsDiv.classList.add("icons");
-    // spanStar.classList.add("star");
-
-    // imageDiv.appendChild(img);
-    // imageDiv.appendChild(detailsDiv);
-    // detailsDiv.appendChild(titulo);
-    // detailsDiv.appendChild(moreDiv);
-    // moreDiv.appendChild(readMore);
-    // moreDiv.appendChild(iconsDiv);
-    // iconsDiv.appendChild(spanStar);
-    // spanStar.appendChild(icon);
-
     if (qntdExibido == 0) {
       banner.insertAdjacentHTML(
         "afterbegin",
         `
-            <div class="image">
+            <div class="image" id="${games[qntdExibido].id}">
                   <img src="${games[qntdExibido].thumbnail}" alt="" />
                   <div class="details">
                     <h2>${games[qntdExibido].title}</h2>
@@ -77,7 +43,7 @@ export async function exibe(filtro = "sort-by=popularity") {
       container.insertAdjacentHTML(
         "beforeend",
         `
-            <div class="image">
+            <div class="image" id="${games[qntdExibido].id}">
                   <img src="${games[qntdExibido].thumbnail}" alt="" />
                   <div class="details">
                     <h2>${games[qntdExibido].title}</h2>
