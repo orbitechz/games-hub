@@ -1,4 +1,4 @@
-import { consultaJogos } from "./getJogos.js";
+import { consultaJogos, filtrar } from "./getJogos.js";
 let qntd = 10;
 let qntdExibido = 0;
 
@@ -10,7 +10,8 @@ export async function exibe(filtro = "sort-by=popularity") {
   if (typeof filtro == "object") {
     filtro.forEach(async function (ids) {
       let arrayFavs = new Array();
-      let item = await consultaJogos(`game?id=${ids.id}`);
+      filtrar(`game?id=${ids.id}`);
+      let item = await consultaJogos();
       arrayFavs.push(item);
       console.log(arrayFavs);
     });
