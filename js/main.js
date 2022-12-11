@@ -6,4 +6,5 @@ bttCarrega.addEventListener('click',function(){
   load()
 })
 
+const pesquisar = document.querySelectorAll(".search");
 
