@@ -29,7 +29,7 @@ export async function exibe(filtro = "sort-by=popularity") {
                     <h2>${games[qntdExibido].title}</h2>
                     <div class="more">
                     <div class="short-disc">
-                      <a href="${games[qntdExibido].freetogame_profile_url}" class="read-more"><p class="short">${games[qntdExibido].short_description}</p></a>
+                      <a href="${games[qntdExibido].freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games[qntdExibido].short_description}</p></a>
                       </div>
                       <div class="icons">
                         <span class="star"><i class="bi bi-star-fill"></i></span>
@@ -49,7 +49,7 @@ export async function exibe(filtro = "sort-by=popularity") {
                     <h2>${games[qntdExibido].title}</h2>
                     <div class="more">
                     <div class="short-disc">
-                      <a href="${games[qntdExibido].freetogame_profile_url}" class="read-more"><p class="short">${games[qntdExibido].short_description}</p></a>
+                      <a href="${games[qntdExibido].freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games[qntdExibido].short_description}</p></a>
                       </div>
                       <div class="icons">
                         <span class="star"><i class="bi bi-star-fill"></i></span>
