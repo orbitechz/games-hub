@@ -1,10 +1,7 @@
 import { exibe } from './appendJogos.js'
-// import { consultaJogos } from './getJogos.js'
+
 
 let contadorFav = 0
-// const root = document.getElementById('conteudo-main')
-// const banner = document.getElementById('banner')
-
 export function getFavoritos() {
   return JSON.parse(localStorage.getItem('fav') || '[]')
 }

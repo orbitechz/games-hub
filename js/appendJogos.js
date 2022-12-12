@@ -3,12 +3,13 @@ import { consultaJogos, filtrar } from './getJogos.js';
 let qntd = 10
 let qntdExibido = 0
 const container = document.getElementById('conteudo-main')
-const banner = document.getElementById('banner')
+const banner = document.getElementById('banner');
 export async function exibe(reset=false) {
     if(reset){
+        const jogoBanner = document.querySelector(".banner")
         qntd = 10;
-        qntdExibido = 1;
-        banner.removeChild(banner.lastChild);
+        qntdExibido = 0;
+        jogoBanner.remove();
         while (container.firstChild) {
             container.removeChild(container.lastChild);
         }
@@ -31,7 +32,7 @@ export async function exibe(reset=false) {
     console.log(games);
     for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
         let conteudo =  `
-        <div class="image" id="${games[qntdExibido].id}">
+        <div class="image banner" id="${games[qntdExibido].id}">
             <img src="${games[qntdExibido].thumbnail}" alt="" />
             <div class="details">
                 <h2>${games[qntdExibido].title}</h2>
