@@ -113,17 +113,18 @@ body {
   color: yellow;
 }
 
-.logo span {
-  color: yellow;
-}
+
 .navbar .opcoes {
   width: 15rem;
 }
-.navbar .logo p {
-  padding-inline: 1rem;
-  font-size: 1rem;
-  transition: 300ms;
+.navbar .logo{
+  width: 10%;
 }
+
+.navbar .logo img {
+  width: 100%;
+}
+
 
 .navbar .fav {
   display: flex;
