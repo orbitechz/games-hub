@@ -1,3 +1,5 @@
+let filtro = "games?sort-by=popularity";
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -5,9 +7,12 @@ const options = {
 		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 	}
 };
-export async function consultaJogos(filtro="games?sort-by=popularity"){
+export async function consultaJogos(){
 	return await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/${filtro}`, options).then(response => response.json());
 	
 }
 
-
+export function filtrar(f="games?sort-by=popularity"){
+	filtro = f;
+	console.log(`https://free-to-play-games-database.p.rapidapi.com/api/${filtro}`)
+}
