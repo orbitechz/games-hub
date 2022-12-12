@@ -2,6 +2,7 @@ import { exibe } from './appendJogos.js'
 
 
 let contadorFav = 0
+
 export function getFavoritos() {
   return JSON.parse(localStorage.getItem('fav') || '[]')
 }
@@ -10,11 +11,9 @@ export async function listener() {
   await exibe()
   atualizaFavoritos()
   let stars = document.querySelectorAll('.star')
-  console.log(stars.length)
   stars.forEach(function (star) {
     if (stars.length <= 11 || stars.length - contadorFav <= 10) {
       star.addEventListener('click', function () {
-        alert('clicado!')
         let divRoot = star.parentNode.parentNode.parentNode.parentNode
         divRoot = divRoot.id
         if (star.classList.contains('starfill')) {

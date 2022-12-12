@@ -5,14 +5,26 @@ import { filtrar } from './getJogos.js'
 const wait = await exibe()
 listener()
 
+const titulos = {
+  home: 'Mais Jogados',
+  shooter: 'Jogos de Tiro',
+  mmofps: 'MMFOPS',
+  racing: 'Corrida',
+  space: 'Espaço',
+  card: 'Jogos de Cartas',
+  sandbox: 'Mundo Aberto',
+  strategy: 'Estratégia',
+  horror: 'Terror'
+}
+const titleCategory = document.getElementById('category')
 const bttCarrega = document.getElementById('carregaMais')
 bttCarrega.addEventListener('click', function () {
   load()
   listener()
 })
 
-const pesquisar = document.querySelectorAll('.search')
-pesquisar.forEach(filtro => {
+const filtros = document.querySelectorAll('.filtro')
+filtros.forEach(filtro => {
   filtro.addEventListener('click', function () {
     let idFiltro = filtro.id
     if (idFiltro != 'favoritos') {
@@ -26,6 +38,7 @@ pesquisar.forEach(filtro => {
       filtrar(favoritos)
     }
     exibe(true)
-    listener();
+    listener()
+    titleCategory.innerHTML = titulos[idFiltro];
   })
 })

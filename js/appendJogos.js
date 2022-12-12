@@ -14,23 +14,13 @@ export async function exibe(reset=false) {
             container.removeChild(container.lastChild);
         }
     }
-    
     let games;
-
-    if (typeof filtro == 'object') {
-        let arrayFavs = []
-        filtro.forEach(async function (ids) {
-        if(ids.id != 0){
-            let item = await consultaJogos()
-            arrayFavs.push(item)
-        }
-        })
-        games = arrayFavs
-    }else{
-        games = await consultaJogos();
-    }
-    console.log(games);
+    games = await consultaJogos();
+    console.log(games.length);
     for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
+        if (qntdExibido == games.length) {
+            break
+        }
         let conteudo =  `
         <div class="image banner" id="${games[qntdExibido].id}">
             <img src="${games[qntdExibido].thumbnail}" alt="" />
@@ -51,10 +41,6 @@ export async function exibe(reset=false) {
             banner.insertAdjacentHTML('afterbegin',conteudo);
         } else {
             container.insertAdjacentHTML('beforeend', conteudo);
-        }
-
-        if (qntdExibido == games.length) {
-            break
         }
     }
 }
