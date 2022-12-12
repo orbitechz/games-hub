@@ -1,11 +1,14 @@
 import {exibe, load} from "./appendJogos.js"
 import { getFavoritos, listener } from "./favoritos.js";
 import { filtrar } from "./getJogos.js";
-exibe();
+
+const wait = await exibe()
+listener()
 
 const bttCarrega = document.getElementById("carregaMais")
-bttCarrega.addEventListener('click',async function(){
-  let wait = await load();
+bttCarrega.addEventListener('click', function(){
+  // stars = document.querySelectorAll('.star');
+  load();
   listener();
 })
 
