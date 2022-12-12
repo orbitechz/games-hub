@@ -1,4 +1,5 @@
 import { exibe } from './appendJogos.js'
+import { filtrar, consultaJogos} from './getJogos.js'
 
 
 let contadorFav = 0
@@ -53,3 +54,19 @@ function atualizaFavoritos(id = null, rm = false) {
   }
   localStorage.setItem('fav', JSON.stringify(favoritos))
 }
+
+const bttFav = document.getElementById("favoritos");
+let gamesFavoritos;
+bttFav.addEventListener('click', function(){
+  gamesFavoritos = new Array;
+  let favoritos = getFavoritos();
+  favoritos.forEach(async(favorito) => {
+    if(favorito.id != 0){
+      filtrar(`game?id=${favorito.id}`)
+      let jogo = await consultaJogos();
+      gamesFavoritos.push(jogo);
+      console.log(gamesFavoritos);
+      exibe(true, gamesFavoritos);
+    }
+  });
+})

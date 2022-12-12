@@ -4,7 +4,7 @@ let qntd = 10
 let qntdExibido = 0
 const container = document.getElementById('conteudo-main')
 const banner = document.getElementById('banner');
-export async function exibe(reset=false) {
+export async function exibe(reset=false, games=null) {
     if(reset){
         const jogoBanner = document.querySelector(".banner")
         qntd = 10;
@@ -14,9 +14,11 @@ export async function exibe(reset=false) {
             container.removeChild(container.lastChild);
         }
     }
-    let games;
-    games = await consultaJogos();
-    console.log(games);
+    if(games==null){
+        games = await consultaJogos();
+    }
+    console.log(games)
+    console.log(typeof(games))
     for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
         if (qntdExibido == games.length) {
             break
