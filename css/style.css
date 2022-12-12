@@ -95,13 +95,9 @@ body {
 
 .navbar .fav {
   margin-right: 2rem;
-  display: flex;
-  flex-direction: row;
+
 }
 
-.navbar .fav .material-symbols-outlined {
-  visibility: hidden;
-}
 
 .navbar a {
   transition: 300ms;
@@ -410,14 +406,6 @@ body {
   }
 }
 
-@media (max-width: 706px) {
-  .textt {
-    display: none;
-  }
-  .navbar .fav .material-symbols-outlined {
-    visibility: visible;
-  }
-}
 @media (max-width: 653px) {
   .main-content {
     margin-left: 40px;
