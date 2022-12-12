@@ -16,7 +16,7 @@ export async function exibe(reset=false) {
     }
     let games;
     games = await consultaJogos();
-    console.log(games.length);
+    console.log(games);
     for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
         if (qntdExibido == games.length) {
             break
