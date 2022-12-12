@@ -2,7 +2,7 @@ import { consultaJogos, filtrar } from './getJogos.js';
 
 let qntd = 10
 let qntdExibido = 0
-const container = document.getElementById('conteudo-main')
+const container = document.getElementById('conteudo-main');
 const banner = document.getElementById('banner');
 export async function exibe(reset=false, games=null) {
     if(reset){
@@ -17,20 +17,18 @@ export async function exibe(reset=false, games=null) {
     if(games==null){
         games = await consultaJogos();
     }
-    console.log(games)
-    console.log(typeof(games))
     for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
         if (qntdExibido == games.length) {
             break
         }
         let conteudo =  `
-        <div class="image banner" id="${games[qntdExibido].id}">
-            <img src="${games[qntdExibido].thumbnail}" alt="" />
+        <div class="image banner" id="${games[qntdExibido]?.id}">
+            <img src="${games[qntdExibido]?.thumbnail}" alt="" />
             <div class="details">
-                <h2>${games[qntdExibido].title}</h2>
+                <h2>${games[qntdExibido]?.title}</h2>
                 <div class="more">
                 <div class="short-disc">
-                <a href="${games[qntdExibido].freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games[qntdExibido].short_description}</p></a>
+                <a href="${games[qntdExibido]?.freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games[qntdExibido]?.short_description}</p></a>
                 </div>
                 <div class="icons">
                     <span class="star"><i class="bi bi-star-fill"></i></span>

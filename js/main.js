@@ -22,11 +22,15 @@ bttCarrega.addEventListener('click', function () {
   load()
   listener()
 })
+const catHome = document.getElementById("home");
+const platAll = document.getElementById("all")
 const plataformas = document.querySelectorAll('.plataforma')
 const filtros = document.querySelectorAll('.filtro')
 const categorias = document.querySelectorAll('.categoria')
 filtros.forEach(filtro => {
   filtro.addEventListener('click', function () {
+    let contCategorias = 0;
+    let contPlataformas = 0;
     if (filtro.classList.contains('plataforma')) {
       plataformas.forEach(plataforma => {
         plataforma.classList.remove('selecionado')
@@ -42,6 +46,12 @@ filtros.forEach(filtro => {
               `games?platform=${filtro.id}&category=${categoria.id}&sort-by=popularity`
             )
           }
+        }else{contCategorias++;}
+        if(contCategorias >= 9){
+          filtrar(
+            `games?platform=all&sort-by=popularity`
+          );
+          catHome.classList.add("selecionado")
         }
       })
     } else if (filtro.classList.contains('categoria')) {
@@ -59,6 +69,18 @@ filtros.forEach(filtro => {
               `games?platform=${plataforma.id}&category=${filtro.id}&sort-by=popularity`
             )
           }
+        }else{contPlataformas++;}
+        if(contPlataformas >= 3){
+          if(filtro.id =="home"){
+            filtrar(
+              `games?platform=${plataforma.id}&sort-by=popularity`
+            );
+          }else{
+            filtrar(
+              `games?category=${filtro.id}&plataform=all&sort-by=popularity`
+            );
+          }
+          platAll.classList.add("selecionado")
         }
       })
     }
