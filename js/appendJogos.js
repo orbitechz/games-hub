@@ -1,71 +1,51 @@
-import { consultaJogos } from './getJogos.js'
-let qntd = 11;
-let qntdExibido = 0;
-let games;
-export async function exibe(filtro="sort-by=popularity"){
-    games = new Array;
-    const container = document.getElementById("conteudo-main");
-    const banner = document.getElementById("banner");
-    if(typeof(filtro) == 'object'){
-        console.log('sera?')
-        filtro.forEach(async function(ids){
-            let item = await consultaJogos(`game?id=${ids.id}`)
-            games.push(item);
-            console.log(games[0].title)
-        });
-    }else{
+import { consultaJogos, filtrar } from './getJogos.js';
+
+let qntd = 10
+let qntdExibido = 0
+const container = document.getElementById('conteudo-main');
+const banner = document.getElementById('banner');
+export async function exibe(reset=false, games=null) {
+    if(reset){
+        const jogoBanner = document.querySelector(".banner")
+        qntd = 10;
+        qntdExibido = 0;
+        jogoBanner.remove();
+        while (container.firstChild) {
+            container.removeChild(container.lastChild);
+        }
+    }
+    if(games==null){
         games = await consultaJogos();
     }
-    console.log(games)
-    console.log(games.length)
-        
-    for(qntdExibido; qntdExibido < qntd; qntdExibido++){
-        let imageDiv = document.createElement("div");
-        let detailsDiv = document.createElement("div");
-        let moreDiv = document.createElement("div");
-        let iconsDiv = document.createElement("div");
-        let readMore = document.createElement("a");
-        let titulo = document.createElement("h2");
-        let img = document.createElement("img");
-        let spanStar = document.createElement("span");
-        let icon = document.createElement("i");
-
-        img.src = games[qntdExibido].thumbnail;
-        titulo.innerText = games[qntdExibido].title   
-        readMore.innerText = games[qntdExibido].short_description
-        icon.className = "bi bi-star-fill"
-        readMore.href = games[qntdExibido].game_url
-        readMore.target = "blank"
-
-        imageDiv.classList.add("image");
-        imageDiv.id = games[qntdExibido].id;
-        detailsDiv.classList.add("details");
-        moreDiv.classList.add("more");
-        readMore.classList.add("read-more");
-        iconsDiv.classList.add("icons");
-        spanStar.classList.add("star");
-        
-        imageDiv.appendChild(img);
-        imageDiv.appendChild(detailsDiv);
-        detailsDiv.appendChild(titulo);
-        detailsDiv.appendChild(moreDiv);
-        moreDiv.appendChild(readMore);
-        moreDiv.appendChild(iconsDiv);
-        iconsDiv.appendChild(spanStar);
-        spanStar.appendChild(icon);
-        if(qntdExibido == 0){
-            banner.appendChild(imageDiv);
-        }else{
-            container.appendChild(imageDiv);
+    for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
+        if (qntdExibido == games.length) {
+            break
         }
-
-        // if(qntdExibido == games.length){
-        //     break;
-        // }
+        let conteudo =  `
+        <div class="image banner" id="${games[qntdExibido]?.id}">
+            <img src="${games[qntdExibido]?.thumbnail}" alt="" />
+            <div class="details">
+                <h2>${games[qntdExibido]?.title}</h2>
+                <div class="more">
+                <div class="short-disc">
+                <a href="${games[qntdExibido]?.freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games[qntdExibido]?.short_description}</p></a>
+                </div>
+                <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
+                </div>
+                </div>
+            </div>
+            </div>
+        `
+        if (qntdExibido == 0) {
+            banner.insertAdjacentHTML('afterbegin',conteudo);
+        } else {
+            container.insertAdjacentHTML('beforeend', conteudo);
+        }
     }
 }
 
-export function load(){
-    qntd+=10;
-    exibe()
+export function load() {
+  qntd += 10;
+  exibe()
 }
