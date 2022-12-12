@@ -1,74 +1,64 @@
-import { consultaJogos, filtrar } from "./getJogos.js";
-let qntd = 10;
-let qntdExibido = 0;
+import { consultaJogos, filtrar } from './getJogos.js';
 
-let games = await consultaJogos();
-export async function exibe(filtro = "sort-by=popularity") {
-  const container = document.getElementById("conteudo-main");
-  const banner = document.getElementById("banner");
+let qntd = 10
+let qntdExibido = 0
+const container = document.getElementById('conteudo-main')
+const banner = document.getElementById('banner')
+export async function exibe(reset=false) {
+    if(reset){
+        qntd = 10;
+        qntdExibido = 1;
+        banner.removeChild(banner.lastChild);
+        while (container.firstChild) {
+            container.removeChild(container.lastChild);
+        }
+    }
+    
+    let games;
 
-  if (typeof filtro == "object") {
-    filtro.forEach(async function (ids) {
-      let arrayFavs = new Array();
-      filtrar(`game?id=${ids.id}`);
-      let item = await consultaJogos();
-      arrayFavs.push(item);
-      console.log(arrayFavs);
-    });
-  } else {
+    if (typeof filtro == 'object') {
+        let arrayFavs = []
+        filtro.forEach(async function (ids) {
+        if(ids.id != 0){
+            let item = await consultaJogos()
+            arrayFavs.push(item)
+        }
+        })
+        games = arrayFavs
+    }else{
+        games = await consultaJogos();
+    }
     console.log(games);
-  }
-
-  for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
-    if (qntdExibido == 0) {
-      banner.insertAdjacentHTML(
-        "afterbegin",
-        `
-            <div class="image" id="${games[qntdExibido].id}">
-                  <img src="${games[qntdExibido].thumbnail}" alt="" />
-                  <div class="details">
-                    <h2>${games[qntdExibido].title}</h2>
-                    <div class="more">
-                    <div class="short-disc">
-                      <a href="${games[qntdExibido].freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games[qntdExibido].short_description}</p></a>
-                      </div>
-                      <div class="icons">
-                        <span class="star"><i class="bi bi-star-fill"></i></span>
-                      </div>
-                    </div>
-                  </div>
+    for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
+        let conteudo =  `
+        <div class="image" id="${games[qntdExibido].id}">
+            <img src="${games[qntdExibido].thumbnail}" alt="" />
+            <div class="details">
+                <h2>${games[qntdExibido].title}</h2>
+                <div class="more">
+                <div class="short-disc">
+                <a href="${games[qntdExibido].freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games[qntdExibido].short_description}</p></a>
                 </div>
-            `
-      );
-    } else {
-      container.insertAdjacentHTML(
-        "beforeend",
-        `
-            <div class="image" id="${games[qntdExibido].id}">
-                  <img src="${games[qntdExibido].thumbnail}" alt="" />
-                  <div class="details">
-                    <h2>${games[qntdExibido].title}</h2>
-                    <div class="more">
-                    <div class="short-disc">
-                      <a href="${games[qntdExibido].freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games[qntdExibido].short_description}</p></a>
-                      </div>
-                      <div class="icons">
-                        <span class="star"><i class="bi bi-star-fill"></i></span>
-                      </div>
-                    </div>
-                  </div>
+                <div class="icons">
+                    <span class="star"><i class="bi bi-star-fill"></i></span>
                 </div>
-            `
-      );
-    }
+                </div>
+            </div>
+            </div>
+        `
+        if (qntdExibido == 0) {
+            banner.insertAdjacentHTML('afterbegin',conteudo);
+        } else {
+            container.insertAdjacentHTML('beforeend', conteudo);
+        }
 
-    if (qntdExibido == games.length) {
-      break;
+        if (qntdExibido == games.length) {
+            break
+        }
     }
-  }
 }
 
 export function load() {
   qntd += 10;
-  exibe();
+  exibe()
 }

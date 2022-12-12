@@ -7,19 +7,14 @@ const banner = document.getElementById('banner')
 
 listener()
 
-const favs = document.getElementById('favoritos')
-favs.addEventListener('click', function () {
-  banner.removeChild(banner.lastChild)
-  while (root.firstChild) {
-    root.removeChild(root.lastChild)
-  }
-  let favoritos = JSON.parse(localStorage.getItem('fav') || '[]')
-  exibe(favoritos)
-})
+export function getFavoritos(){
+    return JSON.parse(localStorage.getItem('fav') || '[]')
+}
 
-export function listener() {
+export async function listener() {
     atualizaFavoritos()
-    const unfillStar = document.querySelectorAll('.star');
+    let unfillStar = document.querySelectorAll('.star');
+    console.log(unfillStar);
     unfillStar.forEach(function (star) {
         star.addEventListener('click', function () {
             let divRoot = star.parentNode.parentNode.parentNode.parentNode;
@@ -37,7 +32,7 @@ export function listener() {
 }
 
 function atualizaFavoritos(id = null, rm = false) {
-  let favoritos = JSON.parse(localStorage.getItem('fav') || '[]')
+  let favoritos = getFavoritos();
   if (id == null || rm) {
     let x = 0
     favoritos.forEach(function (fav) {
@@ -51,7 +46,7 @@ function atualizaFavoritos(id = null, rm = false) {
         let jogoFav = document.getElementById(fav.id)
         if (jogoFav) {
           let star = jogoFav.querySelector('.star')
-          star.classList.add('starfill')
+          star.classList.add('starfill');
         }
       }
     })

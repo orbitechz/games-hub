@@ -1,4 +1,4 @@
-let filtro = "games?sort-by=popularity"
+let filtro = "games?sort-by=popularity";
 
 const options = {
 	method: 'GET',
@@ -12,6 +12,7 @@ export async function consultaJogos(){
 	
 }
 
-export function filtrar(f){
+export function filtrar(f="games?sort-by=popularity"){
 	filtro = f;
+	console.log(`https://free-to-play-games-database.p.rapidapi.com/api/${filtro}`)
 }
