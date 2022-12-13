@@ -8,6 +8,7 @@ export function getFavoritos() {
 }
 
 export async function listener() {
+  alert("oi")
   atualizaFavoritos()
   let stars = document.querySelectorAll('.star')
   stars.forEach(function (star) {
@@ -74,9 +75,10 @@ bttFav.addEventListener('click', async function () {
       filtrar(`game?id=${favorito.id}`)
       let jogo = await consultaJogos()
       await exibe(false, jogo)
-      listener()
     }
   })
+  await exibe(false,null,true);
+  listener()
 
 
   const filtros = document.querySelectorAll('.filtro')

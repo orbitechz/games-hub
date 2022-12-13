@@ -29,6 +29,7 @@ const filtros = document.querySelectorAll('.filtro')
 const categorias = document.querySelectorAll('.categoria')
 filtros.forEach(filtro => {
   filtro.addEventListener('click', function () {
+    listener()
     let contCategorias = 0;
     let contPlataformas = 0;
     if (filtro.classList.contains('plataforma')) {
