@@ -1,6 +1,5 @@
 import { exibe } from './appendJogos.js'
-import { filtrar, consultaJogos} from './getJogos.js'
-
+import { filtrar, consultaJogos } from './getJogos.js'
 
 let contadorFav = 0
 
@@ -9,7 +8,6 @@ export function getFavoritos() {
 }
 
 export async function listener() {
-  await exibe()
   atualizaFavoritos()
   let stars = document.querySelectorAll('.star')
   stars.forEach(function (star) {
@@ -54,32 +52,35 @@ function atualizaFavoritos(id = null, rm = false) {
   }
   localStorage.setItem('fav', JSON.stringify(favoritos))
 }
-const titulo = document.getElementById("category")
-const bttFav = document.getElementById("favoritos");
-bttFav.addEventListener('click', async function(){
-  let gamesFavoritos;
-  gamesFavoritos = new Array;
-  let favoritos = getFavoritos();
-  favoritos.forEach(async(favorito) => {
-    if(favorito.id != 0){
-      filtrar(`game?id=${favorito.id}`)
-      let jogo = await consultaJogos();
-      gamesFavoritos.push(jogo);
-      console.log(gamesFavoritos);
-      await exibe(true, gamesFavoritos);
-    }
-  });
-  listener();
+const titulo = document.getElementById('category')
+const bttFav = document.getElementById('favoritos')
+bttFav.addEventListener('click', async function () {
+  let favoritos = getFavoritos()
+  titulo.innerText = "Meus Favoritos"
   const container = document.getElementById('conteudo-main');
-  const undefined = container.querySelectorAll(".image");
-  undefined.forEach(ud => {
-    let h2 = ud.querySelector("h2")
-    if(h2.innerText == "UNDEFINED"){
-      h2.remove();
+  const jogoBanner = document.querySelector('.banner');
+  
+  if (jogoBanner) {
+    jogoBanner.remove()
+  }
+  while (container.firstChild) {
+    container.removeChild(container.lastChild)
+  }
+  if(favoritos.length == 0){
+    container.insertAdjacentHTML("beforeend", "<h1>Você não adicionou nenhum favorito!<h1>")
+  }
+  favoritos.forEach(async favorito => {
+    if (favorito.id != 0) {
+      filtrar(`game?id=${favorito.id}`)
+      let jogo = await consultaJogos()
+      await exibe(false, jogo)
+      listener()
     }
-  });
-  const filtros = document.querySelectorAll('.filtro');
+  })
+
+
+  const filtros = document.querySelectorAll('.filtro')
   filtros.forEach(filtro => {
-    filtro.classList.remove("selecionado");
-  });
+    filtro.classList.remove('selecionado')
+  })
 })

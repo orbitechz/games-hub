@@ -2,7 +2,7 @@ import { exibe, load } from './appendJogos.js'
 import { getFavoritos, listener } from './favoritos.js'
 import { filtrar } from './getJogos.js'
 
-const wait = await exibe()
+await exibe()
 listener()
 
 const titulos = {

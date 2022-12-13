@@ -4,21 +4,49 @@ let qntd = 10
 let qntdExibido = 0
 const container = document.getElementById('conteudo-main');
 const banner = document.getElementById('banner');
-export async function exibe(reset=false, games=null) {
+export async function exibe(reset=false, game=null) {
+    let games;
+    let fav = false;
     if(reset){
         const jogoBanner = document.querySelector(".banner")
         qntd = 10;
         qntdExibido = 0;
-        jogoBanner.remove();
+        if(jogoBanner){
+            jogoBanner.remove();
+        }
         while (container.firstChild) {
             container.removeChild(container.lastChild);
         }
     }
-    if(games==null){
+    if(game==null){
         games = await consultaJogos();
+    }else{
+        games = game;
+        fav = true;
+        
     }
+    console.log(games)
+
+    if(fav){
+        let conteudo = `<div class="image banner" id="${games.id}">
+        <img src="${games.thumbnail}" alt="" />
+        <div class="details">
+            <h2>${games.title}</h2>
+            <div class="more">
+            <div class="short-disc">
+            <a href="${games.freetogame_profile_url}" target="_blank" class="read-more"><p class="short">${games.short_description}</p></a>
+            </div>
+            <div class="icons">
+                <span class="star"><i class="bi bi-star-fill"></i></span>
+            </div>
+            </div>
+        </div>
+        </div>`
+           container.insertAdjacentHTML('beforeend', conteudo);
+    }
+    
     for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
-        if (qntdExibido == games.length) {
+        if (qntdExibido == games?.length) {
             break
         }
         let conteudo =  `
