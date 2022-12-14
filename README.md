@@ -5,7 +5,7 @@ Desenvolvedores:
 - Bouchra Akl - bushraakl1234@gmail.com
 - Gustavo Piegat - gustavopiegat2004@gmail.com
 - Jean Moschen - jeanfelipe0610@gmail.com
-- Vincius Aquino - comercial.viniciusgabriel@gmail.com
+- Vinicius Aquino - comercial.viniciusgabriel@gmail.com
 
 Confira o layout desenvolvido:
 ---
