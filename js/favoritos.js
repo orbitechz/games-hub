@@ -76,6 +76,10 @@ const bttFav = document.getElementById('favoritos');
 
 bttFav.addEventListener('click', async function () { // botao da aba para mostrar os favoritos
   bttFav.classList.add("selecionado"); // Seleciona os Favoritos
+  const filtros = document.querySelectorAll(".star");
+  filtros.forEach(filtro => {
+    filtro.classList.remove("selecionado")
+  });
   document.getElementById('carregaMais').style.visibility = 'hidden'; // Apaga botao de Carregar Mais
   let favoritos = getFavoritos();
   titulo.innerText = 'Meus Favoritos';
