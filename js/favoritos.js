@@ -57,6 +57,7 @@ function atualizaFavoritos(id = null, rm = false) {
 const titulo = document.getElementById("category")
 const bttFav = document.getElementById("favoritos");
 bttFav.addEventListener('click', async function(){
+  document.querySelector('.titlee').innerHTML ='Meus Favoritos'
   let gamesFavoritos;
   gamesFavoritos = new Array;
   let favoritos = getFavoritos();
