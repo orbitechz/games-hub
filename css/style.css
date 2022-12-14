@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100;1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100;1,300&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  cursor: url("https://cur.cursors-4u.net/games/gam-14/gam1339.cur"), auto !important;
+  cursor: url('https://cur.cursors-4u.net/games/gam-14/gam1339.cur'), auto !important;
 }
 body {
   margin: 0;
@@ -14,8 +14,8 @@ body {
 }
 
 :root {
-  --font-base: "Poppins", sans-serif;
-  --gamer-font: "Press Start 2P", cursive;
+  --font-base: 'Poppins', sans-serif;
+  --gamer-font: 'Press Start 2P', cursive;
   --back-color: #24282f;
   --font-color: #fff;
 }
@@ -28,10 +28,14 @@ body {
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to right, transparent, transparent,  #ff0000);
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    transparent,
+    #ff0000
+  );
   border-radius: 10px;
 }
-
 
 .selecionado {
   color: yellow !important;
@@ -86,6 +90,7 @@ body {
   position: fixed;
   width: 100%;
   z-index: 100;
+  background-color: #8728ff;
   background-image: linear-gradient(
     to right,
     #1b1a1d,
@@ -95,35 +100,57 @@ body {
   );
 }
 
-.navbar .opcoes,
-.navbar .logo {
+.navv {
+  display: flex;
+}
+
+.hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.navv .opcoes {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin-inline: 3rem;
 }
 
-.navbar .fav {
+.navbar .logo img {
+  margin-left: 2rem;
+  display: block;
+  min-width: 120px;
+  min-height: 25px;
+  width: auto;
+  height: auto;
+}
+.navv .fav {
   margin-right: 2rem;
-
 }
 
-
-.navbar a {
+.navv a {
   transition: 300ms;
 }
 
-.navbar a:hover {
+.navv a:hover {
   transition: 300ms;
   font-size: 0.9rem;
   color: yellow;
 }
 
-
-.navbar .opcoes {
+.navv .opcoes {
+  margin-right: 300px;
   width: 15rem;
 }
-.navbar .logo{
+.navbar .logo {
   width: 10%;
 }
 
@@ -131,14 +158,13 @@ body {
   width: 100%;
 }
 
-
-.navbar .fav {
+.navv .fav {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.navbar .fav #favoritos {
-  margin-right: 10px;
+.navv .fav #favoritos {
+  margin-right: 0.75vw;
 }
 
 .sidebar ul {
@@ -148,9 +174,9 @@ body {
 }
 
 .sidebar li {
-  height: 50px;
+  height: 8.78vh;
   list-style: none;
-  margin-top: 5px;
+  margin-top: 0.4vw;
 }
 
 .sidebar li a {
@@ -189,19 +215,16 @@ body {
   justify-content: center;
   align-items: center;
 }
-.container-banner {
-  width: 500px;
-  font-family: "Poppins";
-}
-.container-banner img {
-  width: 100%;
+.container-banner .image {
+  min-width: 20rem;
+  font-family: 'Poppins';
 }
 
 /*-------------------VITRINE---------------------------*/
 
 .container {
-  margin: 30px;
-  font-family: "Poppins";
+  margin: 1.875rem;
+  font-family: 'Poppins';
 }
 
 .row {
@@ -211,16 +234,16 @@ body {
   grid-template-columns: auto auto;
 }
 
-.image{
+.image {
   position: relative;
   flex: 1;
-  max-width: 460px;
-  height: 250px;
-  margin: 20px;
+  max-width: 28.7rem;
+  height: 18.7rem;
+  margin: 1.25rem;
   overflow: hidden;
 }
 
-.image img{
+.image img {
   width: 100%;
   border-radius: 10px;
   opacity: 1;
@@ -229,7 +252,6 @@ body {
   transition: 0.6s;
   transition-property: opacity;
 }
-
 
 .image:hover img {
   opacity: 0.4;
@@ -247,10 +269,10 @@ body {
 
 .image .details h2 {
   text-align: center;
-  font-size: 20px;
+  font-size: 1.25rem;
   text-transform: uppercase;
   font-weight: 600;
-  margin-top: 70px;
+  margin-top: 3.75rem;
   transition: 0.4s;
   transition-property: transform;
   opacity: 0;
@@ -266,8 +288,7 @@ body {
 }
 
 .image .details p {
-  margin: 30px 10px -15px 20px;
-  padding: 0;
+  margin: 30px 30px 0 30px;
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
@@ -286,10 +307,10 @@ body {
   background: rgba(255, 255, 255, 0.8);
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding-top: 30px;
-  bottom: -400px;
+  padding-top: 2.5rem;
+  bottom: -25rem;
   transition: 0.3s;
   transition-property: bottom;
   color: var(--back-color);
@@ -307,14 +328,13 @@ body {
   color: #1a1a1d;
   text-align: start;
 }
-.icons{
+.icons {
   margin-bottom: 1rem;
 }
 .more .icons span i {
-  align-self: flex-start;
-  font-size: 20px;
-  margin-right: 30px;
-  padding-bottom: 1rem;
+  align-self: center;
+  font-size: 1.25rem;
+  margin-right: 2.875rem;
 }
 
 .star {
@@ -332,7 +352,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
+  gap: 1.72vw;
 }
 
 .lineOne,
@@ -349,22 +369,22 @@ body {
   width: 45vw;
 }
 
-.titlee, .alerta {
+.titlee,
+.alerta {
   align-self: stretch;
   font-family: var(--gamer-font);
   font-style: normal;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: .8rem;
   line-height: 32px;
   color: white;
 }
 
-.alerta{
+.alerta {
   margin-top: 2rem;
   color: yellow;
   font-size: 1rem;
 }
-
 
 /*---------------Botão----------------------*/
 
@@ -375,7 +395,7 @@ body {
   padding: 20px 30px 20px 30px;
   color: rgb(240, 240, 12);
   font-family: var(--gamer-font);
-  font-size: .8rem;
+  font-size: 0.8rem;
   text-align: center;
   border: none;
   background-size: 300% 100%;
@@ -395,7 +415,7 @@ body {
 .load-btn:hover {
   background-position: 100% 0;
   transition: all 0.4s ease-in-out;
-  font-size: .85rem;
+  font-size: 0.85rem;
 }
 
 .load-btn:focus {
@@ -403,39 +423,114 @@ body {
 }
 
 /* RESPONSIVITY */
-
+@media (max-width: 768px) {
+  .lineOne,
+  .lineTwo {
+    display: none;
+    visibility: hidden;
+  }
+  .titlee {
+    color: rgb(255, 255, 0);
+  }
+}
 @media (max-width: 890px) {
   .image {
     max-width: 480px;
   }
-  .row {
-    display: grid;
-    grid-template-columns: auto;
-  }
 }
 
 @media (max-width: 840px) {
-  .titlee {
-    font-size: 0.8rem;
+  .titlee,
+  .alerta {
+    font-size: 0.7rem;
+  }
+  .alerta {
+    color: white;
+    width: 80%;
+    text-align: center;
+    margin-left: 2rem;
   }
   .lineOne {
     width: 8vw;
   }
+  .sidebar {
+    padding: 0;
+  }
 }
-@media (max-width: 790px) {
+
+@media (max-width: 862px) {
+  .hamburger {
+    display: block;
+    margin-top: 30px;
+    font-size: 20px;
+    margin-left: 4rem;
+  }
+  .hamburger .active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger .active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .navv {
+    z-index: 100;
+    position: fixed;
+    left: -100%;
+    top: 40px;
+    gap: 0;
+    flex-direction: column;
+    background-image: linear-gradient(
+      to right,
+      #1b1a1d,
+      #2f2b33,
+      #4d2f2f,
+      #4d1616
+    );
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .navv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navv .fav,
+  .navv .opcoes {
+    margin: 16px 250px;
+  }
+
+  .navv.active {
+    left: 0;
+  }
+
+  .seperator {
+    align-self: center;
+    margin-right: 3rem;
+  }
+
   .lineOne {
     width: 7vw;
   }
   .lineTwo {
     width: 30vw;
   }
+
+  .row {
+    display: grid;
+    grid-template-columns: auto;
+  }
 }
 
 @media (max-width: 653px) {
   .main-content {
-    margin-left: 40px;
+    margin-left: 5.5rem;
   }
-
+  .nav-link .text {
+    display: none;
+  }
   .image {
     max-width: 370px;
   }
@@ -453,45 +548,11 @@ body {
     align-self: center;
     margin-left: 70px;
   }
-  .container-banner {
-    margin-left: 70px;
-  }
-  .nav-link .text {
-    display: none;
-  }
-
-  .sidebar {
-    width: 20px;
-    position: sticky;
-    height: 100%;
-    min-height: 100vh;
-  }
-  .sidebar li a:hover {
-    background-color: transparent;
-    width: 0;
-    padding: 0;
-  }
-  .sidebar li:hover .tooltip {
-    visibility: visible;
-  }
-  .seperator {
-    margin-right: 80px;
-  }
-  .lineOne {
-    width: 5vw;
-  }
-  .lineTwo {
-    width: 20vw;
-  }
 }
 
-@media (max-width: 561px) {
-  .navbar {
-    justify-content: flex-start;
-    margin-inline: 1rem;
-  }
-
-  .navbar .opcoes {
-    width: 10rem;
+@media (max-width: 520px) {
+  .more {
+    padding-top: 3.7rem;
+    bottom: -15rem;
   }
 }
