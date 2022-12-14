@@ -31,7 +31,6 @@ bttCarrega.addEventListener('click', async function () {
 })
 filtros.forEach(filtro => {
   filtro.addEventListener('click', async function () {
-    console.log(bttCarrega);
     if (bttCarrega.style.visibility == 'hidden'){
       bttCarrega.style.visibility = "visible"
     }

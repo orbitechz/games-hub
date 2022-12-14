@@ -14,5 +14,4 @@ export async function consultaJogos(){
 
 export function filtrar(f="games?sort-by=popularity"){
 	filtro = f;
-	console.log(`https://free-to-play-games-database.p.rapidapi.com/api/${filtro}`)
 }

@@ -10,7 +10,6 @@ export function getFavoritos() {
 export async function listener(fav=0) {
   atualizaFavoritos()
   if(fav!=0){
-    console.log(fav)
     let jogoFav = document.getElementById(fav);
     let star = jogoFav.querySelector(".star");
     alteraFavorito(star);
@@ -28,7 +27,6 @@ export async function listener(fav=0) {
 
 function alteraFavorito(star){
   star.addEventListener('click', function () {
-    alert("aplicado")
     let divRoot = star.parentNode.parentNode.parentNode.parentNode
     divRoot = divRoot.id
     if (star.classList.contains('starfill')) {
@@ -79,15 +77,14 @@ bttFav.addEventListener('click', async function () {
   while (container.firstChild) {
     container.removeChild(container.lastChild)
   }
-  if(favoritos.length == 0){
-    container.insertAdjacentHTML("beforeend", "<h1>Você não adicionou nenhum favorito!<h1>")
+  if(favoritos.length == 0){    
+    container.insertAdjacentHTML("beforeend", "<h1 class='alerta'>Você não adicionou nenhum favorito!<h1>")
   }else{
     favoritos.forEach(async favorito => {
       if (favorito.id != 0) {
         filtrar(`game?id=${favorito.id}`)
         let jogo = await consultaJogos();
         await exibe(false, jogo)
-        console.log(jogo.id)
         listener(jogo.id);
       }
     })

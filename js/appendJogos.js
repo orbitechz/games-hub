@@ -28,7 +28,6 @@ export async function exibe(reset=false, game=null, retorna=false) {
             fav = true;
             
         }
-        console.log(games)
     
         if(fav){
             let conteudo = `<div class="image banner" id="${games.id}">
