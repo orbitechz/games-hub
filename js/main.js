@@ -30,6 +30,7 @@ const platAll = document.getElementById("all"); // Todas as plataformas
 const filtros = document.querySelectorAll('.filtro'); // Categorias e Plataformas
 const plataformas = document.querySelectorAll('.plataforma'); // Plataformas
 const categorias = document.querySelectorAll('.categoria'); // Categorias
+const bttFav = document.getElementById('favoritos'); // Favoritos
 // ======================================================================
 
 bttCarrega.addEventListener('click', async function () {
@@ -43,6 +44,9 @@ filtros.forEach(filtro => {
   filtro.addEventListener('click', async function () {
     if (bttCarrega.style.visibility == 'hidden'){ // Se o botao Carrega Mais estiver escondido, mostrar o mesmo
       bttCarrega.style.visibility = "visible";
+    }
+    if(bttFav.classList.contains("selecionado")){ // Se o botao Favoritos estiver selecionado, retira a seleção
+      bttFav.classList.remove("selecionado");
     }
 
     let contCategorias = 0; //Contador para checar se alguma categoria esta selecionada

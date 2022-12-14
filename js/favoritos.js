@@ -75,6 +75,7 @@ const titulo = document.getElementById('category');
 const bttFav = document.getElementById('favoritos');
 
 bttFav.addEventListener('click', async function () { // botao da aba para mostrar os favoritos
+  bttFav.classList.add("selecionado"); // Seleciona os Favoritos
   document.getElementById('carregaMais').style.visibility = 'hidden'; // Apaga botao de Carregar Mais
   let favoritos = getFavoritos();
   titulo.innerText = 'Meus Favoritos';
