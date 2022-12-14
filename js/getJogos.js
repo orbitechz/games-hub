@@ -1,4 +1,4 @@
-let filtro = "games?sort-by=popularity";
+let filtro = "games?sort-by=popularity"; // Filtro dinamioco usado para filtrar o sjogos
 
 const options = {
 	method: 'GET',
@@ -7,11 +7,11 @@ const options = {
 		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 	}
 };
-export async function consultaJogos(){
+export async function consultaJogos(){ // Funcao que retorna os jogos pesquisados usando o filtro
 	return await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/${filtro}`, options).then(response => response.json());
 	
 }
 
-export function filtrar(f="games?sort-by=popularity"){
+export function filtrar(f="games?sort-by=popularity"){ // Funcao que altera somente o filtro
 	filtro = f;
 }
