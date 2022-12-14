@@ -154,8 +154,34 @@ body {
   width: 10%;
 }
 
+.navbar .logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-inline: 1.5rem;
+}
+
+.navbar .logo i {
+  font-size: 1.5rem;
+  margin-left: 5rem;
+  color: orange;
+}
+
+.navbar .logo{
+  font-weight: bold;
+  font-family: 'Press Start 2P', cursive;
+  /* margin-left: 4rem; */
+}
+
 .navbar .logo img {
-  width: 100%;
+  width: 20%;
+  height: 20%;
+}
+
+.navbar .logo p{
+  padding-inline: 1rem;
+  font-size: 1rem;
+  margin-top: 8px;
 }
 
 .navv .fav {
