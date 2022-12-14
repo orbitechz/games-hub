@@ -7,26 +7,38 @@ export function getFavoritos() {
   return JSON.parse(localStorage.getItem('fav') || '[]')
 }
 
-export async function listener() {
+export async function listener(fav=0) {
   atualizaFavoritos()
-  let stars = document.querySelectorAll('.star')
-  stars.forEach(function (star) {
-    if (stars.length <= 11 || stars.length - contadorFav <= 10) {
-      star.addEventListener('click', function () {
-        let divRoot = star.parentNode.parentNode.parentNode.parentNode
-        divRoot = divRoot.id
-        if (star.classList.contains('starfill')) {
-          star.classList.remove('starfill')
-          atualizaFavoritos(divRoot, true)
-        } else {
-          star.classList.add('starfill')
-          atualizaFavoritos(divRoot)
-        }
-      })
+  if(fav!=0){
+    console.log(fav)
+    let jogoFav = document.getElementById(fav);
+    let star = jogoFav.querySelector(".star");
+    alteraFavorito(star);
+  }else{
+    let stars = document.querySelectorAll('.star')
+    stars.forEach(function (star) {
+      if (stars.length <= 11 || stars.length - contadorFav <= 10) {
+        alteraFavorito(star)
+      }
+      contadorFav++
+    })
+    contadorFav = 0
+  }
+}
+
+function alteraFavorito(star){
+  star.addEventListener('click', function () {
+    alert("aplicado")
+    let divRoot = star.parentNode.parentNode.parentNode.parentNode
+    divRoot = divRoot.id
+    if (star.classList.contains('starfill')) {
+      star.classList.remove('starfill')
+      atualizaFavoritos(divRoot, true)
+    } else {
+      star.classList.add('starfill')
+      atualizaFavoritos(divRoot)
     }
-    contadorFav++
   })
-  contadorFav = 0
 }
 
 function atualizaFavoritos(id = null, rm = false) {
@@ -55,6 +67,7 @@ function atualizaFavoritos(id = null, rm = false) {
 const titulo = document.getElementById('category')
 const bttFav = document.getElementById('favoritos')
 bttFav.addEventListener('click', async function () {
+  document.getElementById('carregaMais').style.visibility = "hidden";
   let favoritos = getFavoritos()
   titulo.innerText = "Meus Favoritos"
   const container = document.getElementById('conteudo-main');
@@ -68,22 +81,24 @@ bttFav.addEventListener('click', async function () {
   }
   if(favoritos.length == 0){
     container.insertAdjacentHTML("beforeend", "<h1>Você não adicionou nenhum favorito!<h1>")
+  }else{
+    favoritos.forEach(async favorito => {
+      if (favorito.id != 0) {
+        filtrar(`game?id=${favorito.id}`)
+        let jogo = await consultaJogos();
+        await exibe(false, jogo)
+        console.log(jogo.id)
+        listener(jogo.id);
+      }
+    })
+    await exibe(false,null,true);
+    listener();
+  
+    
+    
+    const filtros = document.querySelectorAll('.filtro')
+    filtros.forEach(filtro => {
+      filtro.classList.remove('selecionado')
+    })
   }
-  favoritos.forEach(async favorito => {
-    if (favorito.id != 0) {
-      filtrar(`game?id=${favorito.id}`)
-      let jogo = await consultaJogos()
-      await exibe(false, jogo)
-    }
-  })
-  await exibe(false,null,true);
-  listener()
-
-  document.getElementById('carregaMais').style.visibility = "hidden";
-
-
-  const filtros = document.querySelectorAll('.filtro')
-  filtros.forEach(filtro => {
-    filtro.classList.remove('selecionado')
-  })
 })

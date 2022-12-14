@@ -3,7 +3,7 @@ import { getFavoritos, listener } from './favoritos.js'
 import { filtrar } from './getJogos.js'
 
 await exibe();
-listener("inicial");
+listener();
 
 const titulos = {
   home: 'Mais Jogados',
@@ -93,7 +93,7 @@ filtros.forEach(filtro => {
     filtro.classList.add('selecionado')
 
     await exibe(true)
-    listener(filtro);
+    listener();
     categorias.forEach(categoria => {
       if (categoria.classList.contains('selecionado')) {
         titleCategory.innerHTML = titulos[categoria.id]
