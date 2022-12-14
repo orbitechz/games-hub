@@ -2,8 +2,8 @@ import { exibe, load } from './appendJogos.js'
 import { getFavoritos, listener } from './favoritos.js'
 import { filtrar } from './getJogos.js'
 
-await exibe()
-listener("inicial")
+await exibe();
+listener("inicial");
 
 const titulos = {
   home: 'Mais Jogados',
@@ -16,17 +16,19 @@ const titulos = {
   strategy: 'Estratégia',
   horror: 'Terror'
 }
-const titleCategory = document.getElementById('category')
-const bttCarrega = document.getElementById('carregaMais')
+const titleCategory = document.getElementById('category');
+const bttCarrega = document.getElementById('carregaMais');
+const catHome = document.getElementById("home");;
+const platAll = document.getElementById("all");
+const plataformas = document.querySelectorAll('.plataforma');
+const filtros = document.querySelectorAll('.filtro');
+const categorias = document.querySelectorAll('.categoria');
+
+
 bttCarrega.addEventListener('click', async function () {
   await load()
   listener()
 })
-const catHome = document.getElementById("home");
-const platAll = document.getElementById("all")
-const plataformas = document.querySelectorAll('.plataforma')
-const filtros = document.querySelectorAll('.filtro')
-const categorias = document.querySelectorAll('.categoria')
 filtros.forEach(filtro => {
   filtro.addEventListener('click', async function () {
     console.log(bttCarrega);

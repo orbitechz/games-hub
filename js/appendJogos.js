@@ -50,6 +50,7 @@ export async function exibe(reset=false, game=null, retorna=false) {
         
         for (qntdExibido; qntdExibido < qntd + 1; qntdExibido++) {
             if (qntdExibido == games?.length) {
+                document.getElementById('carregaMais').style.visibility = "hidden";
                 break
             }
             let conteudo =  `
