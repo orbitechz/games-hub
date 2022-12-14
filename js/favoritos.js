@@ -10,10 +10,12 @@ export function getFavoritos() {
 export async function listener(fav=0) {
   atualizaFavoritos()
   if(fav!=0){
+    console.log("ta certo")
     let jogoFav = document.getElementById(fav);
     let star = jogoFav.querySelector(".star");
     alteraFavorito(star);
   }else{
+    console.log("ALERTA")
     let stars = document.querySelectorAll('.star')
     stars.forEach(function (star) {
       if (stars.length <= 11 || stars.length - contadorFav <= 10) {
@@ -87,11 +89,7 @@ bttFav.addEventListener('click', async function () {
         await exibe(false, jogo)
         listener(jogo.id);
       }
-    })
-    await exibe(false,null,true);
-    listener();
-  
-    
+    })  
     
     const filtros = document.querySelectorAll('.filtro')
     filtros.forEach(filtro => {
