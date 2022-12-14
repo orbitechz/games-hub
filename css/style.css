@@ -37,7 +37,8 @@ a {
 body {
   max-width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, #8728ff, #b020d4);
+  /* background-image: linear-gradient(to bottom, #8728ff, #b020d4); */
+  background-color: #8728ff;
 
   /*BACKGROUND-IMAGE ANTIGO: 
   background-image: linear-gradient(to top, #7d1cdd, #620497, #570081);
@@ -76,41 +77,68 @@ body {
   position: fixed;
   width: 100%;
   z-index: 100;
-  background-image: linear-gradient(
+  background-color: #8728ff;
+  /* background-image: linear-gradient(
     to right,
     #8728ff,
     #764ba2,
     #8728ff,
     #8e37d7
-  );
+  ); */
 }
 
-.navbar .opcoes,
-.navbar .logo {
+.navv{
+  display: flex;
+}
+
+.hamburger{
+  display: none;
+}
+
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.navv .opcoes{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin-inline: 3rem;
 }
 
-.navbar .fav {
+
+.navbar .logo img{
+  margin-left: 2rem;
+  display: block;
+  min-width:120px;
+  min-height:25px;
+  width: auto;
+  height: auto;
+}
+.navv .fav {
   margin-right: 2rem;
 
 }
 
 
-.navbar a {
+.navv a {
   transition: 300ms;
 }
 
-.navbar a:hover {
+.navv a:hover {
   transition: 300ms;
   font-size: 0.9rem;
   color: yellow;
 }
 
 
-.navbar .opcoes {
+.navv .opcoes {
+  margin-right: 300px;
   width: 15rem;
 }
 .navbar .logo{
@@ -122,12 +150,12 @@ body {
 }
 
 
-.navbar .fav {
+.navv .fav {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.navbar .fav #favoritos {
+.navv .fav #favoritos {
   margin-right: 0.75vw;
 }
 
@@ -375,6 +403,65 @@ body {
 }
 
 /* RESPONSIVITY */
+
+@media(max-width:862px){
+ 
+.hamburger{
+  display: block;
+  margin-top: 30px;
+  font-size: 20px;
+  margin-left: 4rem;
+}
+.hamburger .active .bar:nth-child(2){
+  opacity: 0;
+}
+.hamburger .active .bar:nth-child(1){
+  transform: translateY(8px)rotate(45deg);
+}
+.navbar{
+  background-color: 
+  #8728ff
+;
+}
+
+.navv{
+  z-index: 100;
+  position: fixed;
+  left: -100%;
+  top: 40px;
+  gap: 0;
+  flex-direction: column;
+  background-image: none;
+  background-color: 
+    #8728ff
+  ;
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.navv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navv .fav ,
+.navv .opcoes{
+  margin: 16px 250px;
+}
+
+.navv.active{
+  left: 0;
+}
+
+/* .activee{
+  margin-top: 150px;
+} */
+
+
+
+}
 
 /* @media (max-width: 890px) {
   .image {
