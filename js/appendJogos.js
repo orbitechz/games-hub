@@ -79,5 +79,5 @@ export async function exibe(reset=false, game=null, retorna=false) {
 
 export function load() {
   qntd += 10;
-  exibe()
+  return exibe()
 }

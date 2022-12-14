@@ -3,7 +3,7 @@ import { getFavoritos, listener } from './favoritos.js'
 import { filtrar } from './getJogos.js'
 
 await exibe()
-listener()
+listener("inicial")
 
 const titulos = {
   home: 'Mais Jogados',
@@ -18,8 +18,8 @@ const titulos = {
 }
 const titleCategory = document.getElementById('category')
 const bttCarrega = document.getElementById('carregaMais')
-bttCarrega.addEventListener('click', function () {
-  load()
+bttCarrega.addEventListener('click', async function () {
+  await load()
   listener()
 })
 const catHome = document.getElementById("home");
@@ -28,8 +28,7 @@ const plataformas = document.querySelectorAll('.plataforma')
 const filtros = document.querySelectorAll('.filtro')
 const categorias = document.querySelectorAll('.categoria')
 filtros.forEach(filtro => {
-  filtro.addEventListener('click', function () {
-    listener()
+  filtro.addEventListener('click', async function () {
     let contCategorias = 0;
     let contPlataformas = 0;
     if (filtro.classList.contains('plataforma')) {
@@ -87,8 +86,8 @@ filtros.forEach(filtro => {
     }
     filtro.classList.add('selecionado')
 
-    exibe(true)
-    listener()
+    await exibe(true)
+    listener(filtro);
     categorias.forEach(categoria => {
       if (categoria.classList.contains('selecionado')) {
         titleCategory.innerHTML = titulos[categoria.id]

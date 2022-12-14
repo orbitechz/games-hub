@@ -8,7 +8,6 @@ export function getFavoritos() {
 }
 
 export async function listener() {
-  alert("oi")
   atualizaFavoritos()
   let stars = document.querySelectorAll('.star')
   stars.forEach(function (star) {
