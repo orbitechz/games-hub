@@ -79,6 +79,8 @@ bttFav.addEventListener('click', async function () {
   await exibe(false,null,true);
   listener()
 
+  document.getElementById('carregaMais').style.visibility = "hidden";
+
 
   const filtros = document.querySelectorAll('.filtro')
   filtros.forEach(filtro => {
